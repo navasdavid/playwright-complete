@@ -1,0 +1,38 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "declaration": true,
+        "removeComments": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "allowSyntheticDefaultImports": true,
+        "target": "ES2022",
+        "sourceMap": true,
+        "outDir": "./dist",
+        "baseUrl": "./",
+        "incremental": true,
+        "strict": true,
+        // **extra "strictness" not already enabled by string=true**
+        // (taken in order fromhttps://www.typescriptlang.org/tsconfig#Type_Checking_6248)
+        //
+        // "allowUnreachableCode" - leaving it empty means unreachable shows as warning - https://www.typescriptlang.org/tsconfig#allowUnreachableCode
+        // "allowUnusedLabels"  - leaving it empty means unused shows as warning - https://www.typescriptlang.org/tsconfig#allowUnusedLabels
+        // "exactOptionalPropertyTypes": true, - turning this on makes the whole undefined vs null vs missing even harder - https://www.typescriptlang.org/tsconfig#exactOptionalPropertyTypes
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitAny": true,
+        "noImplicitOverride": true,
+        "noImplicitReturns": true,
+        "noPropertyAccessFromIndexSignature": true,
+        // "noUncheckedIndexedAccess": true, - forces to do null check when accessing by index. safer, but more verbose - https://www.typescriptlang.org/tsconfig#noUncheckedIndexedAccess
+        // "noUnusedLocals": true, - helpful to detect unused code, but annoying while developing - https://www.typescriptlang.org/tsconfig#noUnusedLocals
+        // "noUnusedParameters": true, - helpful to detect unused code, but annoying while developing + covered by eslint - https://www.typescriptlang.org/tsconfig#noUnusedParameters
+        "forceConsistentCasingInFileNames": true,
+        "esModuleInterop": true,
+    },
+    "exclude": [
+        "node_modules",
+        "dist",
+        "lambdas",
+        "platform"
+    ],
+}

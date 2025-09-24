@@ -1,0 +1,17 @@
+{
+  "name": "playwright-e2e-tests",
+  "version": "1.0.0",
+  "description": "Welcome to the frontend web tests based on playwright",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "lib": "lib",
+    "test": "tests"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.55.1"
+  }
+}
