@@ -1,5 +1,4 @@
 import { expect, Page } from '@playwright/test';
-import { AriaRole } from 'fixtures/base_test';
 
 export const testHistoryButton = {
   id: 'menu-item-10284'

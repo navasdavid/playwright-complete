@@ -10,14 +10,14 @@ export default defineConfig<TestEnvironmentParameters>({
       name: 'chrome',
       use: {
         ...devices['Desktop Chrome'],
-        baseUrl: 'https://staging-env/fashionhub'
+        baseUrl: 'https://pocketaces2.github.io/fashionhub'
       }
     },
     {
       name: 'firefox',
       use: {
         ...devices['Desktop Firefox'],
-        baseUrl: 'https://staging-env/fashionhub'
+        baseUrl: 'https://pocketaces2.github.io/fashionhub'
       }
     }
   ]
