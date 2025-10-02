@@ -1,10 +1,10 @@
 import { test as baseTest } from '@playwright/test';
 import AccountPage from 'page_objects/account_page';
 import LoginPage from 'page_objects/login_page';
-import WelcomePage from 'page_objects/welcome_page';
+import HomePage from 'page_objects/home_page';
 
 type pages = {
-  welcomePage: WelcomePage;
+  homePage: HomePage;
   loginPage: LoginPage;
   accountPage: AccountPage;
 };
@@ -25,8 +25,8 @@ const testPages = baseTest.extend<pages, TestEnvironmentParameters>({
     }
   ],
 
-  welcomePage: async ({ page }, use) => {
-    await use(new WelcomePage(page));
+  homePage: async ({ page }, use) => {
+    await use(new HomePage(page));
   },
   loginPage: async ({ page }, use) => {
     await use(new LoginPage(page));

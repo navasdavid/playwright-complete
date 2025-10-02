@@ -1,6 +1,6 @@
 import { expect } from '@playwright/test';
 import { test } from '../fixtures/base_test';
-import { SectionsLinks } from 'page_objects/welcome_page';
+import { SectionsLinks } from 'page_objects/home_page';
 
 const logs: {
   message: string;
@@ -8,21 +8,21 @@ const logs: {
 }[] = [];
 
 test.describe('Navigation to sections', () => {
-  test.beforeEach(async ({ page, welcomePage, baseUrl }) => {
+  test.beforeEach(async ({ page, homePage, baseUrl }) => {
     page.on('console', (msg) => {
       if (msg.type() == 'error') {
         logs.push({ message: msg.text(), type: msg.type() });
       }
     });
-    await welcomePage.openWelcomePage(baseUrl);
+    await homePage.openWelcomePage(baseUrl);
   });
 
   test('Navigation to Account - No console errors ', async ({
-    welcomePage,
+    homePage,
     baseUrl,
     page
   }) => {
-    await welcomePage.openTab(SectionsLinks.ACCOUNT);
+    await homePage.openTab(SectionsLinks.ACCOUNT);
     expect(page.url(), `Incorrect URL for account section: ${page.url()}`).toBe(
       `${baseUrl}/account.html`
     );
@@ -33,11 +33,11 @@ test.describe('Navigation to sections', () => {
   });
 
   test('Navigation to Clothing - No console errors ', async ({
-    welcomePage,
+    homePage,
     baseUrl,
     page
   }) => {
-    await welcomePage.openTab(SectionsLinks.CLOTHING);
+    await homePage.openTab(SectionsLinks.CLOTHING);
     expect(
       page.url(),
       `Incorrect URL for Clothing section: ${page.url()}`
@@ -49,11 +49,11 @@ test.describe('Navigation to sections', () => {
   });
 
   test('Navigation to Shopping Bag - No console errors ', async ({
-    welcomePage,
+    homePage,
     baseUrl,
     page
   }) => {
-    await welcomePage.openTab(SectionsLinks.SHOPPINGBAG);
+    await homePage.openTab(SectionsLinks.SHOPPINGBAG);
     expect(
       page.url(),
       `Incorrect URL for Shopping section: ${page.url()}`
@@ -65,11 +65,11 @@ test.describe('Navigation to sections', () => {
   });
 
   test('Navigation to About - No console errors ', async ({
-    welcomePage,
+    homePage,
     baseUrl,
     page
   }) => {
-    await welcomePage.openTab(SectionsLinks.ABOUT);
+    await homePage.openTab(SectionsLinks.ABOUT);
     expect(page.url(), `Incorrect URL for About section: ${page.url()}`).toBe(
       `${baseUrl}/about.html`
     );
@@ -80,11 +80,11 @@ test.describe('Navigation to sections', () => {
   });
 
   test('Navigation to Home - No console errors ', async ({
-    welcomePage,
+    homePage,
     baseUrl,
     page
   }) => {
-    await welcomePage.openTab(SectionsLinks.HOME);
+    await homePage.openTab(SectionsLinks.HOME);
     expect(page.url(), `Incorrect URL for Home section: ${page.url()}`).toBe(
       `${baseUrl}/`
     );

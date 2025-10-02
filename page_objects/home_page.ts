@@ -1,9 +1,5 @@
 import { Page } from '@playwright/test';
 
-export const testHistoryButton = {
-  id: 'menu-item-10284'
-};
-
 export enum SectionsLinks {
   HOME = 'Home',
   ACCOUNT = 'Account',
@@ -12,11 +8,7 @@ export enum SectionsLinks {
   ABOUT = 'About'
 }
 
-const accountButton = {
-  name: 'Account'
-};
-
-export default class WelcomePage {
+export default class HomePage {
   public constructor(public page: Page) {}
 
   public async openWelcomePage(host: string): Promise<void> {
