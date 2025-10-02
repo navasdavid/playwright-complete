@@ -17,53 +17,80 @@ test.describe('Navigation to sections', () => {
     await welcomePage.openWelcomePage(baseUrl);
   });
 
-  test('Navigation to Account - No errors ', async ({
+  test('Navigation to Account - No console errors ', async ({
     welcomePage,
     baseUrl,
     page
   }) => {
     await welcomePage.openTab(SectionsLinks.ACCOUNT);
-    expect(page.url()).toBe(`${baseUrl}/account.html`);
-    expect(logs.length).toBe(0);
+    expect(page.url(), `Incorrect URL for account section: ${page.url()}`).toBe(
+      `${baseUrl}/account.html`
+    );
+    expect(
+      logs.length,
+      `Some errors found in console for Account section`
+    ).toBe(0);
   });
 
-  test('Navigation to Clothing - No errors ', async ({
+  test('Navigation to Clothing - No console errors ', async ({
     welcomePage,
     baseUrl,
     page
   }) => {
     await welcomePage.openTab(SectionsLinks.CLOTHING);
-    expect(page.url()).toBe(`${baseUrl}/products.html`);
-    expect(logs.length).toBe(0);
+    expect(
+      page.url(),
+      `Incorrect URL for Clothing section: ${page.url()}`
+    ).toBe(`${baseUrl}/products.html`);
+    expect(
+      logs.length,
+      `Some errors found in console for Clothing section`
+    ).toBe(0);
   });
 
-  test('Navigation to Shopping Bag - No errors ', async ({
+  test('Navigation to Shopping Bag - No console errors ', async ({
     welcomePage,
     baseUrl,
     page
   }) => {
     await welcomePage.openTab(SectionsLinks.SHOPPINGBAG);
-    expect(page.url()).toBe(`${baseUrl}/cart.html`);
-    expect(logs.length).toBe(0);
+    expect(
+      page.url(),
+      `Incorrect URL for Shopping section: ${page.url()}`
+    ).toBe(`${baseUrl}/cart.html`);
+    expect(
+      logs.length,
+      `Some errors found in console for Shopping Bag section`
+    ).toBe(0);
   });
 
-  test('Navigation to About - No errors ', async ({
+  test('Navigation to About - No console errors ', async ({
     welcomePage,
     baseUrl,
     page
   }) => {
     await welcomePage.openTab(SectionsLinks.ABOUT);
-    expect(page.url()).toBe(`${baseUrl}/about.html`);
-    expect(logs.length).toBe(0);
+    expect(page.url(), `Incorrect URL for About section: ${page.url()}`).toBe(
+      `${baseUrl}/about.html`
+    );
+    expect(
+      logs.length,
+      `Some errors found in console for About section: ${page.url()}`
+    ).toBe(0);
   });
 
-  test('Navigation to Home - No errors ', async ({
+  test('Navigation to Home - No console errors ', async ({
     welcomePage,
     baseUrl,
     page
   }) => {
     await welcomePage.openTab(SectionsLinks.HOME);
-    expect(page.url()).toContain(`${baseUrl}`);
-    expect(logs.length).toBe(0);
+    expect(page.url(), `Incorrect URL for Home section: ${page.url()}`).toBe(
+      `${baseUrl}/`
+    );
+    expect(
+      logs.length,
+      `Some errors found in console for Home Bag section`
+    ).toBe(0);
   });
 });
