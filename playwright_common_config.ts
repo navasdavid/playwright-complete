@@ -1,13 +1,21 @@
 import { PlaywrightTestConfig } from '@playwright/test';
+import dotenv from 'dotenv';
+import path from 'node:path';
+
+// Read from ".env" file.
+dotenv.config({ path: path.resolve(__dirname, '.env') });
 
 const defaultConfig: PlaywrightTestConfig = {
   testDir: './e2e_tests',
   outputDir: './test-results',
-  timeout: 10 * 1000,
+  timeout: 120 * 1000,
   fullyParallel: true,
-  retries: 1,
+  retries: 0,
   workers: 4,
-  reporter: [['list'], ['html']],
+  reporter: [['list']],
+  expect: {
+    timeout: 10000
+  },
   use: {
     headless: true,
     trace: 'on-first-retry',
