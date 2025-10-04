@@ -1,9 +1,14 @@
 import { PlaywrightTestConfig } from '@playwright/test';
-import dotenv from 'dotenv';
 import path from 'node:path';
+import loadEnvWithPreference from './e2e_tests/support/manage_env_variables';
 
-// Read from ".env" file.
-dotenv.config({ path: path.resolve(__dirname, '.env') });
+// Load environment variables preferring CLI/process.env values over `.env` file.
+// The loader will read from the `.env` next to this file when needed.
+
+//loadEnvWithPreference(path.resolve(__dirname, '.env'));
+
+const { source } = loadEnvWithPreference(path.resolve(__dirname, '.env'));
+console.log('ENV SOURCE:', source);
 
 const defaultConfig: PlaywrightTestConfig = {
   testDir: './e2e_tests',

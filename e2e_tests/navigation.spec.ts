@@ -10,7 +10,7 @@ export type Log = {
 
 let logs: Log[] = [];
 
-test.describe('Navigation to sections @tt', () => {
+test.describe('Navigation to sections', () => {
   test.beforeEach(async ({ page, homePage, baseUrl }) => {
     logs = [];
     page.on('console', (msg) => {

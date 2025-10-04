@@ -9,7 +9,9 @@ test('exportar todos los PRs a CSV', async () => {
   const token = process.env['GITHUB_TOKEN'];
 
   if (!token) {
-    throw new Error('GITHUB_TOKEN not included in the environment variables');
+    throw new Error(
+      'GITHUB personal access TOKEN not included in the environment variables'
+    );
   }
 
   const pullRequests = await getAllOpenPullRequests(owner, repo, token);
