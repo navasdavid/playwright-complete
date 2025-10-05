@@ -78,7 +78,14 @@ There are four main Playwright configuration files in the repository:
 - `playwright_common_config.ts` — common settings used by all environments
 - `playwright_stg_config.ts` — settings specific to the staging environment
 - `playwright_prod_config.ts` — settings specific to the production environment
-- `playwright_stg_config.ts` — settings specific to the production environment
+- `playwright_stg_config.ts` — settings specific to the staging environment
+
+Default browsers
+
+- By default the test projects are configured to run on the Desktop Chrome and Desktop Firefox device profiles. You can change which browsers or device profiles are used by editing the environment-specific Playwright config files. The project uses Playwright's "parameterized projects" strategy so different browsers (or other per-project settings) are defined as separate projects in the config files.
+
+Read more about parameterized projects here:
+https://playwright.dev/docs/test-parameterize#parameterized-projects
 
 Environment variables
 
@@ -99,45 +106,10 @@ The test run produces several outputs:
 - HTML report: when running in staging or production the `html` reporter is used; the report is saved in `playwright-report/` and opened automatically at the end of the run
 - Pull requests CSV: tests that interact with GitHub produce a `pull_requests.csv` file in the project root containing open PRs relevant to the test scenario
 
+  Note on PR CSV generation: the logic that produces `pull_requests.csv` could equally be implemented as a small standalone script (for example a lightweight Node script that calls the GitHub API). For simplicity this project implements it as one of the Playwright test cases so it runs with the rest of the suite. To avoid running it twice, the PR-CSV test is restricted to run only on Chrome.
+
 ## Troubleshooting
 
 - If Docker fails to start the demo image, inspect logs with `docker logs fashionhub-demo` and ensure Docker Desktop is running and you are logged into Docker Hub if needed.
 - If the build fails, run `npm run build` locally to see TypeScript errors.
 - If environment variables are not found, verify the `.env` file exists and the GITHUB_TOKEN value is correctly configured. In addition check that the `PREFER_ENV_SOURCE` setting is correct for your desired behavior.
-
-## Makefile
-
-This project includes a `Makefile` with common convenience targets. Example usage:
-
-- Show help:
-
-```bash
-make help
-```
-
-- Build the project (TypeScript compile):
-
-```bash
-make build
-```
-
-- Run local tests (starts the Docker demo, runs tests, stops and removes the container):
-
-```bash
-make test-local
-```
-
-- Run staging or production tests:
-
-```bash
-make test-stg
-make test-prod
-```
-
-- Stop and remove the demo container:
-
-```bash
-make docker-down
-```
-
-The `Makefile` simply shells out to the corresponding npm scripts that are defined in `package.json`.
