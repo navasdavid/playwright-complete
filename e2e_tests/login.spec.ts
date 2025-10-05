@@ -12,6 +12,5 @@ test('Valid login', async ({
   await homePage.openWelcomePage(baseUrl);
   await homePage.openTab(SectionsLinks.ACCOUNT);
   await loginPage.doLogin('demouser', 'fashion123');
-  await page.waitForTimeout(2000);
   await expect(await accountPage.isLogOutButtonShown()).toBeTruthy();
 });

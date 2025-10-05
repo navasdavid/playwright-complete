@@ -66,7 +66,7 @@ test.describe('Navigation to sections', () => {
     await page.waitForURL(`${baseUrl}/cart.html`, { timeout: 10000 });
     expect(
       page.url(),
-      `Incorrect URL for Shopping section: ${page.url()}`
+      `Incorrect URL for Shopping Bag section: ${page.url()}`
     ).toBe(`${baseUrl}/cart.html`);
     expect(
       logs.length,
@@ -102,9 +102,8 @@ test.describe('Navigation to sections', () => {
     expect(page.url(), `Incorrect URL for Home section: ${page.url()}`).toBe(
       `${baseUrl}/`
     );
-    expect(
-      logs.length,
-      `Some errors found in console for Home Bag section`
-    ).toBe(0);
+    expect(logs.length, `Some errors found in console for Home section`).toBe(
+      0
+    );
   });
 });

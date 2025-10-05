@@ -20,7 +20,7 @@ test('Check all links in Home section are returning a correct code', async ({
 
       const response = await request.get(url);
 
-      // I am ussing soft assertions to be able to test all links and report all errors
+      // I am using soft assertions to be able to test all links and report all errors
       expect
         .soft(
           response.status(),

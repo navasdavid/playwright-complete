@@ -29,10 +29,6 @@ export function loadEnvWithPreference(envFilePath: string): {
   }
   dotenv.config({ path: envFilePath });
   return { source: 'file' };
-
-  // const envFilePathfilePathToUse = envFilePath ?? path.resolve(process.cwd(), '.env');
-  // const loaded = loadDotEnv(filePathToUse);
-  // return { source: loaded ? 'file' : 'none' };
 }
 
 export default loadEnvWithPreference;
