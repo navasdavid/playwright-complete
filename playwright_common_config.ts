@@ -2,13 +2,10 @@ import { PlaywrightTestConfig } from '@playwright/test';
 import path from 'node:path';
 import loadEnvWithPreference from './e2e_tests/support/manage_env_variables';
 
-// Load environment variables preferring CLI/process.env values over `.env` file.
-// The loader will read from the `.env` next to this file when needed.
-
-//loadEnvWithPreference(path.resolve(__dirname, '.env'));
+// load environment variables from CLI if exists and form .env if not
+// Keeping the source element for debugging purposes
 
 const { source } = loadEnvWithPreference(path.resolve(__dirname, '.env'));
-console.log('ENV SOURCE:', source);
 
 const defaultConfig: PlaywrightTestConfig = {
   testDir: './e2e_tests',
