@@ -1,10 +1,10 @@
 import * as fs from 'fs';
-import { PullRequest } from './github_api';
+import type { PullRequest } from './github_api';
 
 export function savePullRequestsToCSV(
   pullrequests: PullRequest[],
   outputPath: string
-) {
+): void {
   const headers = ['Title', 'Author', 'Created At'];
   const rows = pullrequests.map((pr) => [
     `"${pr.title.replace(/"/g, '""')}"`, // escapa comillas dobles

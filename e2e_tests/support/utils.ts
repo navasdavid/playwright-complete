@@ -1,4 +1,4 @@
-import { Log } from './navigation.utils';
+import type { Log } from './navigation.utils';
 
 export async function waitForConsoleLogsToSettle(
   logs: Array<Log>,

@@ -1,4 +1,5 @@
-import { expect, Page } from '@playwright/test';
+import { expect } from '@playwright/test';
+import type { Page } from '@playwright/test';
 import { SectionsLinks } from 'page_objects/home_page';
 
 export type Log = {
