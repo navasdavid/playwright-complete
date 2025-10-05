@@ -1,4 +1,4 @@
-import { Log } from 'e2e_tests/navigation.spec';
+import { Log } from './navigation.utils';
 
 export async function waitForConsoleLogsToSettle(
   logs: Array<Log>,

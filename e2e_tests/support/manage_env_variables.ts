@@ -1,5 +1,4 @@
 import fs from 'fs';
-import path from 'node:path';
 import dotenv from 'dotenv';
 
 export type EnvSource = 'cli' | 'file' | 'file1';

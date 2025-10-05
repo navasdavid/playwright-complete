@@ -1,4 +1,4 @@
-import { expect, Locator } from '@playwright/test';
+import { expect } from '@playwright/test';
 import { test } from '../fixtures/base_test';
 
 test('Check all links in Home section are returning a correct code', async ({

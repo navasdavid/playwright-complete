@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 import { getAllOpenPullRequests } from './support/github_api';
 import { savePullRequestsToCSV } from './support/csv.utils';
 
-test('exportar todos los PRs a CSV', async () => {
+test('Export open pull requests to a csv file', async () => {
   test.skip(test.info().project.name !== 'chrome', 'Executing only on chrome');
   const owner = 'appwrite';
   const repo = 'appwrite';

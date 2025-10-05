@@ -1,4 +1,5 @@
 import { test as baseTest } from '@playwright/test';
+import type { Page } from '@playwright/test';
 import AccountPage from 'page_objects/account_page';
 import LoginPage from 'page_objects/login_page';
 import HomePage from 'page_objects/home_page';
@@ -25,13 +26,22 @@ const testPages = baseTest.extend<pages, TestEnvironmentParameters>({
     }
   ],
 
-  homePage: async ({ page }, use) => {
+  homePage: async (
+    { page }: { page: Page },
+    use: (value: HomePage) => Promise<void>
+  ) => {
     await use(new HomePage(page));
   },
-  loginPage: async ({ page }, use) => {
+  loginPage: async (
+    { page }: { page: Page },
+    use: (value: LoginPage) => Promise<void>
+  ) => {
     await use(new LoginPage(page));
   },
-  accountPage: async ({ page }, use) => {
+  accountPage: async (
+    { page }: { page: Page },
+    use: (value: AccountPage) => Promise<void>
+  ) => {
     await use(new AccountPage(page));
   }
 });

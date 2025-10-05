@@ -7,7 +7,9 @@ This repository contains Playwright end-to-end tests written in TypeScript. The 
 Before running the tests, make sure you have the following installed and configured:
 
 - `nvm` — Node Version Manager (used to select the project Node version)
-- `node` v22.20.0 — this repository uses Node 22.20.0 (use `nvm use v22.20.0`)
+- Recommended versions:
+  - Node: v18+ ( v22.20.0 recommended) — use `nvm use v22.20.0` to match the exact environment
+  - TypeScript: v5.9+ (see `devDependencies` in package.json)
 - Docker Desktop — required to run the local demo application; make sure you are logged in to Docker Hub if you need to pull private images
 
 Verify Node version:
@@ -23,7 +25,7 @@ node -v
 Install project dependencies and Playwright browsers:
 
 ```bash
-cd test_playwright
+cd .
 nvm use v22.20.0
 npm install
 npx playwright install
